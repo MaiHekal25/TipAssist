@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Tip Time App</string>
+    <string name="cost_of_service">Cost of Service</string>
+    <string name="password">Password</string>
 </resources>
