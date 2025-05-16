@@ -2,6 +2,8 @@ package com.training.tiptimeapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import com.training.tiptimeapp.databinding.ActivityMainBinding
 import kotlin.math.ceil
 
@@ -29,6 +31,19 @@ class MainActivity : AppCompatActivity() {
                 total = ceil(total)
             }
             binding.tvTipAmount.text = "$${total.toString()}"
+
+            Snackbar
+                .make(binding.root, "Reset", BaseTransientBottomBar.LENGTH_INDEFINITE)
+                .setAction("Proceed") {
+                    binding.etService.text?.clear()
+                    binding.group.check(R.id.rb_amazing)
+                    binding.switchRoundTip.isChecked = true
+                    binding.tvTipAmount.text = getString(R.string.tip_amount)
+                }
+                .setBackgroundTint(getColor(android.R.color.holo_purple))
+                .setTextColor(getColor(android.R.color.white))
+                .setActionTextColor(getColor(android.R.color.white))
+                .show()
         }
     }
 
